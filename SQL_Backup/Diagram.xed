@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><Diagram version="1.0" type="POSTGRES" versionMajor="9" versionMinor="5" groupSchema="false" hide_inv="false">
+<Table id="0" name="complaints" schema="public" database="kicker" background="16777165">
+<Column id="1" name="id" type="serial" length="0" nulls="false"/>
+<Column id="2" name="created_at" type="timestamp" length="0" nulls="true"/>
+<Column id="3" name="updated_at" type="timestamp" length="0" nulls="true"/>
+<Column id="4" name="game_id" type="int4" length="0" nulls="false"/>
+<Column id="5" name="user_id" type="int4" length="0" nulls="false"/>
+<Column id="6" name="reason" type="varchar" length="255" nulls="true"/>
+</Table>
+<Table id="7" name="games" schema="public" database="kicker" background="16777165">
+<Column id="8" name="id" type="serial" length="0" nulls="false"/>
+<Column id="9" name="team_a_points" type="int4" length="0" nulls="false"/>
+<Column id="10" name="team_b_points" type="int4" length="0" nulls="false"/>
+<Column id="11" name="created_at" type="timestamp" length="0" nulls="true"/>
+<Column id="12" name="updated_at" type="timestamp" length="0" nulls="true"/>
+<Column id="13" name="played_at" type="timestamp" length="0" nulls="true"/>
+<Column id="14" name="status" type="int4" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">1</CP>
+</Column>
+</Table>
+<Table id="15" name="games_users" schema="public" database="kicker" background="16777165">
+<Column id="16" name="id" type="serial" length="0" nulls="false"/>
+<Column id="17" name="game_id" type="int4" length="0" nulls="false"/>
+<Column id="18" name="user_id" type="int4" length="0" nulls="false"/>
+<Column id="19" name="team_index" type="varchar" length="255" nulls="false"/>
+<Column id="20" name="rating_before" type="int4" length="0" nulls="false"/>
+<Column id="21" name="rating_after" type="int4" length="0" nulls="false"/>
+<Column id="22" name="created_at" type="timestamp" length="0" nulls="true"/>
+<Column id="23" name="updated_at" type="timestamp" length="0" nulls="true"/>
+</Table>
+<Table id="24" name="migrations" schema="public" database="kicker" background="16777165">
+<Column id="25" name="migration" type="varchar" length="255" nulls="false"/>
+<Column id="26" name="batch" type="int4" length="0" nulls="false"/>
+</Table>
+<Table id="27" name="password_resets" schema="public" database="kicker" background="16777165">
+<Column id="28" name="email" type="varchar" length="255" nulls="false"/>
+<Column id="29" name="token" type="varchar" length="255" nulls="false"/>
+<Column id="30" name="created_at" type="timestamp" length="0" nulls="false"/>
+</Table>
+<Table id="31" name="users" schema="public" database="kicker" background="16777165">
+<Column id="32" name="id" type="serial" length="0" nulls="false"/>
+<Column id="33" name="name" type="varchar" length="255" nulls="false"/>
+<Column id="34" name="email" type="varchar" length="255" nulls="false"/>
+<Column id="35" name="password" type="varchar" length="255" nulls="false"/>
+<Column id="36" name="remember_token" type="varchar" length="100" nulls="true"/>
+<Column id="37" name="created_at" type="timestamp" length="0" nulls="true"/>
+<Column id="38" name="updated_at" type="timestamp" length="0" nulls="true"/>
+<Column id="39" name="facebook_id" type="varchar" length="255" nulls="true"/>
+<Column id="40" name="count_wins" type="int4" length="0" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+</Column>
+<Column id="41" name="count_draws" type="int4" length="0" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+</Column>
+<Column id="42" name="count_looses" type="int4" length="0" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+</Column>
+<Column id="43" name="rating" type="int4" length="0" nulls="true">
+<CP name="DEFAULT_VALUE">0</CP>
+</Column>
+<Column id="44" name="avatar_url" type="varchar" length="255" nulls="true"/>
+<Column id="45" name="is_admin" type="bool" length="0" nulls="true">
+<CP name="DEFAULT_VALUE">false</CP>
+</Column>
+<Column id="46" name="deleted" type="bool" length="0" nulls="false">
+<CP name="DEFAULT_VALUE">false</CP>
+</Column>
+</Table>
+<Relation id="47" name="complaints_user_id_foreign" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value=""/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="CASCADE"/>
+<FK>32</FK>
+<PK>5</PK>
+</Relation>
+<Relation id="48" name="complaints_game_id_foreign" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value=""/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="CASCADE"/>
+<FK>8</FK>
+<PK>4</PK>
+</Relation>
+<Relation id="49" name="games_users_user_id_foreign" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value=""/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="CASCADE"/>
+<FK>32</FK>
+<PK>18</PK>
+</Relation>
+<Relation id="50" name="games_users_game_id_foreign" cardinality="-2" identifying="false" nulls="false">
+<Option name="onDelete" class="String" value="CASCADE"/>
+<Option name="deferrable" class="Boolean" value="false"/>
+<Option name="match" class="String" value=""/>
+<Option name="initially" class="String" value="IMMEDIATE"/>
+<Option name="onUpdate" class="String" value="CASCADE"/>
+<FK>8</FK>
+<PK>17</PK>
+</Relation>
+<Index table="27" name="password_resets_email_index" schema="public" database="kicker">
+<Option name="unique" class="Boolean" value="false"/>
+<IndexColumn id="28" sequence="0" ascending="true"/>
+</Index>
+<Index table="27" name="password_resets_token_index" schema="public" database="kicker">
+<Option name="unique" class="Boolean" value="false"/>
+<IndexColumn id="29" sequence="0" ascending="true"/>
+</Index>
+<Index table="31" name="index_user_rating" schema="public" database="kicker">
+<Option name="unique" class="Boolean" value="false"/>
+<IndexColumn id="43" sequence="0" ascending="true"/>
+</Index>
+<Index table="31" name="users_email_unique" schema="public" database="kicker">
+<Option name="unique" class="Boolean" value="true"/>
+<IndexColumn id="34" sequence="0" ascending="true"/>
+</Index>
+<Index table="31" name="index_user_is_admin" schema="public" database="kicker">
+<Option name="unique" class="Boolean" value="false"/>
+<IndexColumn id="45" sequence="0" ascending="true"/>
+</Index>
+<Constraint table="0" name="complaints_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="1"/>
+</Constraint>
+<Constraint table="7" name="games_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="8"/>
+</Constraint>
+<Constraint table="15" name="games_users_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="16"/>
+</Constraint>
+<Constraint table="31" name="users_pkey" type="PrimKey">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="32"/>
+</Constraint>
+<Constraint table="31" name="users_email_unique" type="Unique">
+<Option name="tablespace" class="String" value="&lt;DEFAULT&gt;"/>
+<ConstraintColumn id="34"/>
+</Constraint>
+<Sheet name="POSTGRESQL_LOCAL" id="51" disp_at="true" disp_ph="true" disp_co="true" disp_rn="true">
+<Place id="50" visible="true">500,0,0,0</Place>
+<Place id="7" visible="true">21,19,190,140</Place>
+<Place id="15" visible="true">251,19,200,160</Place>
+<Place id="24" visible="true">21,339,190,60</Place>
+<Place id="47" visible="true">500,0,0,0</Place>
+<Place id="0" visible="true">491,19,190,130</Place>
+<Place id="49" visible="true">500,0,0,0</Place>
+<Place id="27" visible="true">251,339,180,80</Place>
+<Place id="48" visible="true">500,0,0,0</Place>
+<Place id="31" visible="true">721,19,240,280</Place>
+</Sheet>
+<Settings sheet="51" zoom="1.0"/>
+</Diagram>

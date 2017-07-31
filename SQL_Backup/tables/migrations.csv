@@ -1,0 +1,17 @@
+"migration","batch"
+"2014_10_12_000000_create_users_table",1
+"2014_10_12_100000_create_password_resets_table",1
+"2016_03_30_191121_add_facebook_id_to_users_table",1
+"2016_04_01_152821_add_stat_fields_to_users",1
+"2016_04_01_182918_add_avatar_url_to_users",1
+"2016_04_01_184305_create_games_table",1
+"2016_04_01_185748_create_games_users_table",1
+"2016_04_03_113110_add_played_at_to_games_table",1
+"2016_04_07_182031_add_index_to_users_table",1
+"2016_04_07_183534_delete_damaged_games",1
+"2016_04_09_100841_add_is_admin_to_users_table",1
+"2016_04_09_135756_create_complaints_table",1
+"2016_04_09_221613_email_to_lower_case",1
+"2016_04_26_120859_add_status_to_games_table",1
+"2016_05_06_114428_add_deleted_column_to_users",1
+"2016_07_18_141207_add_reason_column_to_complaints_table",1
